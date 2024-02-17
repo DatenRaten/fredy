@@ -1,4 +1,8 @@
-<img src="https://github.com/orangecoding/fredy/blob/master/doc/logo.png" width="400">  
+docker build https://github.com/orangecoding/fredy --tag fredy
+
+docker run fredy
+
+
 
 ![Build Status](https://github.com/orangecoding/fredy/actions/workflows/test.yml/badge.svg)
 
