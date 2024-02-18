@@ -12,6 +12,53 @@ yarn run start
 http://localhost:9998 in VCN
 ```
 
+```ssh
+FULL CREDIT: https://blog.merzlabs.com/posts/js-autostart-systemd/
+
+Replace <YOUR-NAME> with a name descriptive of your project. Make it memorable because you have to remember it to stop/restart your project or get the logs.
+
+Replace PATH-TO-PROJECT with the path to your project (something like /home/user/todo-list). Be aware that you still have to use absolute paths to reference your npm executable.
+
+Replace SCRIPT-NAME with the npm script you want to execute. This will probably be something like start or dev. These scripts are listed under the scripts property in your projects package.json.
+
+    If you have not yet installed your npm packages then of course do this first. Go into your project folder and execute
+
+    npm i
+
+    Find out the current path to your npm executable with which. Small recommendation by me for all you macOS and Linux people: Use Node Version Manager (nvm). It works without problems with this, the resulting paths will just look a bit differently.
+
+    which npm
+
+    This will return a path in your file system, use this later as <YOUR-NPM-PATH>
+
+    Create a service via:
+
+    sudo systemctl --force --full edit <YOUR-NAME>.service
+
+    And paste
+
+    [Unit]
+    Description=<(Optional) Description of your project>
+    After=network.target
+
+    [Service]
+    WorkingDirectory=/home/user/<PATH-TO-PROJECT>
+    ExecStart=<YOUR-NPM-PATH> run <SCRIPT-NAME>
+
+    [Install]
+    WantedBy=multi-user.target
+
+    Save it and reload all Systemd services via
+
+    sudo systemctl daemon-reload
+
+    Enable autostart on boot of your new service:
+
+    sudo systemctl enable <YOUR-NAME>.service
+´´´
+
+
+
 
 ![Build Status](https://github.com/orangecoding/fredy/actions/workflows/test.yml/badge.svg)
 
