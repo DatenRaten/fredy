@@ -55,7 +55,7 @@ Replace SCRIPT-NAME with the npm script you want to execute. This will probably 
     Enable autostart on boot of your new service:
 
     sudo systemctl enable <YOUR-NAME>.service
-´´´
+```
 
 
 
