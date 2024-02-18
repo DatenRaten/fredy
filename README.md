@@ -4,8 +4,8 @@
 sudo apt install nodejs
 sudo apt install npm
 sudo npm install --global yarn
-git clone https://github.com/orangecoding/fredy
-cd fredy
+cd /home/datenraten/.fredy
+git pull https://github.com/orangecoding/fredy
 yarn
 yarn run prod
 yarn run start
