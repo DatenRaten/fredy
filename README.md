@@ -9,6 +9,7 @@ cd fredy
 yarn
 yarn run prod
 yarn run start
+http://localhost:9998 in VCN
 ```
 
 
